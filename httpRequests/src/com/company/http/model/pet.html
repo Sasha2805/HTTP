@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="./../css/main.css">
+    <link rel="stylesheet" type="text/css" href="./../css/model.css">
+    <link rel="stylesheet" type="text/css" href="./../css/modelForms.css">
+    <script type="text/javascript" src="./../js/modelRequests/petRequests.js"></script>
+    <script type="text/javascript" src="./../js/xmlhttp.js"></script>
+    <script type="text/javascript" src="./../js/view.js"></script>
+</head>
+
+<body>
+<!-- Container with pet methods -->
+<h4>Click on the block to work with the method</h4>
+<div id="pet-methods" class="methods-container">
+    <!-- POST -->
+    <div class="method-wrapper">
+        <div class="block block-post" onclick="openBlock('addPet')">
+            <span class="method-name">POST</span>
+            <span class="method-description">Add a new pet to the store</span>
+        </div>
+        
+        <div id="addPet" class="block-post method-gui" style="display:none; float: left">
+            <!-- pet addition form -->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">Pet id:</label>
+                        <input type="text" name="petId" id="addPet_petId">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">Pet name:</label>
+                        <input type="text" name="petName" id="addPet_petName">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">Category id:</label>
+                        <input type="text" name="categoryId" id="addPet_categoryId">
+                    </div>
+        
+                    <div class="field">
+                        <label class="fieldName">Category name:</label>
+                        <input type="text" name="categoryName" id="addPet_categoryName">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">Photo URL:</label>
+                        <input type="text" name="photoURL" id="addPet_photoURL">
+                    </div>
+                                
+                    <div class="field">
+                        <label class="fieldName">Pet status:</label>
+                        <select name="petStatus" class="status" id="addPet_status">
+                            <option value="available">Available</option>
+                            <option value="pending">Pending</option>
+                            <option value="sold">Sold</option>
+                        </select>
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="addPet()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>    
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="addPet_result"></textarea>
+            </div>
+        </div>
+    </div>    
+    
+    <!-- PUT -->
+    <div class="method-wrapper">
+        <div class="block block-put" onclick="openBlock('updatePet')">
+            <span class="method-name">PUT</span>
+            <span class="method-description">Update an existing pet</span>
+        </div>
+        <div id="updatePet" class="block-put method-gui" style="display:none; float: left">
+            <!-- pet updating form -->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">Pet id:</label>
+                        <input type="text" name="petId" id="updatePet_petId">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">Pet name:</label>
+                        <input type="text" name="petName" id="updatePet_petName">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">Category id:</label>
+                        <input type="text" name="categoryId" id="updatePet_categoryId">
+                    </div>
+        
+                    <div class="field">
+                        <label class="fieldName">Category name:</label>
+                        <input type="text" name="categoryName" id="updatePet_categoryName">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">Photo URL:</label>
+                        <input type="text" name="photoURL" id="updatePet_photoURL">
+                    </div>
+                                
+                    <div class="field">
+                        <label class="fieldName">Pet status:</label>
+                        <select name="petStatus" class="status" id="updatePet_status">
+                            <option value="available">Available</option>
+                            <option value="pending">Pending</option>
+                            <option value="sold">Sold</option>
+                        </select>
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="updatePet()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>    
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="updatePet_result"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- GET -->
+    <div class="method-wrapper">
+        <div class="block block-get" onclick="openBlock('petByStatus')">
+            <span class="method-name">GET</span>
+            <span class="method-description">Finds Pets by status</span>
+        </div>
+        
+        <div id="petByStatus" class="block-get method-gui" style="display:none; float: left">
+            <!-- pet search form by status -->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">Pet status:</label>
+                        <select name="petStatus" class="status" id="petByStatus_status">
+                            <option value="available">Available</option>
+                            <option value="pending">Pending</option>
+                            <option value="sold">Sold</option>
+                        </select>
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="getPetByStatus()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="petByStatus_result"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- GET -->
+    <div class="method-wrapper">
+        <div class="block block-get" onclick="openBlock('petById')">
+            <span class="method-name">GET</span>
+            <span class="method-description">Find pet by ID</span>
+        </div>
+        
+        <div id="petById" class="block-get method-gui" style="display:none; float: left">
+            <!-- pet search form by ID -->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">Pet id:</label>
+                        <input type="text" name="petId" id="petById_petId">
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="getPetById()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="petById_result"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- DELETE -->
+    <div class="method-wrapper">
+        <div class="block block-delete" onclick="openBlock('deletePet')">
+            <span class="method-name">DELETE</span>
+            <span class="method-description">Delete a pet</span>
+        </div>
+        <div id="deletePet" class="block-delete method-gui" style="display:none; float: left">
+            <!--delete pet by id-->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">Pet id:</label>
+                        <input type="text" name="petId" id="deletePet_petId">
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="deletePetById()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>
+
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="deletePet_result"></textarea>
+            </div>        
+        </div>
+    </div>
+    
+    <!-- POST -->
+    <div class="method-wrapper">
+        <div class="block block-post" onclick="openBlock('uploadImage')">
+            <span class="method-name">POST</span>
+            <span class="method-description">Uploads an image</span>
+        </div>    
+        
+        <div id="uploadImage" class="block-post method-gui" style="display:none; float: left">
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">Pet id:</label>
+                        <input type="text" name="petId" id="uploadImage_petId">
+                    </div>
+                
+                    <div class="field">
+                        <label class="fieldName">File to upload:</label>
+                        <input type="file" id="uploadImage_img">
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="uploadImage()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="uploadImage_result"></textarea>
+            </div>    
+        </div>
+    </div>    
+</div>
+</body>
+</html>
