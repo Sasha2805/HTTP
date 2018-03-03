@@ -10,11 +10,160 @@
 </head>
 
 <body>
-<h4>Click on the block to work with the method</h4>
-
 <!-- Container with store methods -->
+<h4>Click on the block to work with the method</h4>
 <div id="store-methods" class="methods-container">
+    <!-- GET -->
+    <div class="method-wrapper">
+        <div class="block block-get" onclick="openBlock('returnInvertory')">
+            <span class="method-name">GET</span>
+            <span class="method-description">Returns pet inventories by status</span>
+        </div>
 
-</div>>
+        <div id="returnInvertory" class="block-get method-gui" style="display:none; float: left">
+            <!-- returns pet inventories by status -->
+            <div class="form">
+                <form>
+                    <div class="main">
+                        <label class="fieldName">Return pet inventories: </label>
+                        <div class="button-block">
+                            <button type="button" onclick="getInventoryByStatus()">Execute</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="returnInvertory_result"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- POST -->
+    <div class="method-wrapper">
+        <div class="block block-post" onclick="openBlock('placeAnOrder')">
+            <span class="method-name">POST</span>
+            <span class="method-description">Place an order for a pet</span>
+        </div>
+
+        <div id="placeAnOrder" class="block-post method-gui" style="display:none; float: left;">
+            <!-- form for ordering a pet -->
+            <div class="form">
+                <form>
+                    <div class="main">
+                        <div class="field">
+                            <label class="fieldName">Order id:</label>
+                            <input type="text" name="orderId" id="placeAnOrder_id">
+                        </div>
+
+                        <div class="field">
+                            <label class="fieldName">Pet id:</label>
+                            <input type="text" name="petId" id="placeAnOrder_petId">
+                        </div>
+
+                        <div class="field">
+                            <label class="fieldName">Quantity:</label>
+                            <input type="text" name="quantity" id="placeAnOrder_quantity">
+                        </div>
+
+                        <div class="field">
+                            <label class="fieldName">Snip date:</label>
+                            <input type="text" name="snipDate" id="placeAnOrder_snipDate">
+                        </div>
+
+                        <div class="field">
+                            <label class="fieldName">Order status:</label>
+                            <select name="orderStatus" class="status" id="placeAnOrder_status">
+                                <option value="placed">Placed</option>
+                                <option value="approved">Approved</option>
+                                <option value="delivered">Delivered</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label class="fieldName">Complete:</label>
+                            <select name="complete" class="status"  id="placeCompleteOrder_status">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+
+                        <div class="button-block">
+                            <button type="button" onclick="placeAnOrder()">Execute</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="placeAnOrder_result"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- GET -->
+    <div class="method-wrapper">
+        <div class="block block-get" onclick="openBlock('findPurchase')">
+            <span class="method-name">GET</span>
+            <span class="method-description">Find purchase order by ID</span>
+        </div>
+
+        <div id="findPurchase" class="block-get method-gui" style="display:none; float: left">
+            <!-- order search form by ID -->
+            <div class="form">
+                <form>
+                    <div class="main">
+                        <div class="field">
+                            <label class="fieldName">Order id:</label>
+                            <input type="text" name="orderId" id="findPurchase_orderId">
+                        </div>
+
+                        <div class="button-block">
+                            <button type="button" onclick="getOrderById()">Execute</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="findPurchase_result"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- DELETE -->
+    <div class="method-wrapper">
+        <div class="block block-delete" onclick="openBlock('deletePurchase')">
+            <span class="method-name">DELETE</span>
+            <span class="method-description">Delete purchase order by ID</span>
+        </div>
+
+        <div id="deletePurchase" class="block-delete method-gui" style="display:none; float: left">
+            <!--delete purchase order by id-->
+            <div class="form">
+                <form>
+                    <div class="main">
+                        <div class="field">
+                            <label class="fieldName">Order id:</label>
+                            <input type="text" name="orderId" id="deletePurchase_orderId">
+                        </div>
+
+                        <div class="button-block">
+                            <button type="button" onclick="deleteOrderById()">Execute</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="deletePurchase_result"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
-</html>>
+</html>
