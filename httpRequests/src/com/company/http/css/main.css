@@ -1,0 +1,51 @@
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    h3, h4 {
+        padding: 0 20px;
+    }
+
+    a {
+        display: block;
+        height: 100%;
+        text-decoration: none;
+        padding: 20px;
+    }
+
+    a:hover {
+        background: rgba(252,161,48,.1);
+    }
+
+    .wrapper {
+        width: 100%;
+        max-width: 1460px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    section.models h4 {
+        margin: 0px;
+        padding: 20px;
+        background: rgba(73,204,144,.1);
+        border-bottom: 1px solid rgba(59,65,81,.3);
+    }
+
+    section.models, .block, .method-gui, .result textarea {
+        border: 1px solid rgba(59,65,81,.3);
+        border-radius: 4px;
+        box-shadow: 0 0 3px rgba(0,0,0,.19)
+    }
+
+    .model-link {
+        border-bottom: 1px solid rgba(59,65,81,.3);
+    }
+
+    .model_title {
+        font-weight: 700;
+    }
+
+
+
+

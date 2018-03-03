@@ -1,0 +1,100 @@
+    .methods-container {
+        padding: 0 20px 20px 20px;
+    }
+
+    .block  {
+        cursor: pointer;
+        outline: none;
+        display: flex;
+    }
+
+    .block .method-name {
+        font-size: 15px;
+        font-weight: 700;
+        min-width: 80px;
+        padding: 6px 15px;
+        text-align: center;
+        border-radius: 3px;
+        font-family: Titillium Web,sans-serif;
+        color: #fff;
+    }
+
+    .block .method-description  {
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .block , .method-gui {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    .block-get {
+        border-color: #61affe;
+        background: rgba(97,175,254,.1);
+    }
+
+    .block-get .method-name{
+        background: #61affe;
+    }
+
+    .block-post {
+        border-color: #49cc90;
+        background: rgba(73,204,144,.1);
+    }
+
+    .block-post .method-name{
+        background: #49cc90;
+    }
+
+    .block-put {
+        border-color: #fca130;
+        background: rgba(252,161,48,.1);
+    }
+
+    .block-put .method-name{
+        background: #fca130;
+    }
+
+    .block-delete {
+        border-color: #f93e3e;
+        background: rgba(249,62,62,.1);
+    }
+
+    .block-delete .method-name {
+        background: #f93e3e;
+    }
+
+    .method-wrapper::after {
+        content: " ";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+    .method-gui {
+        width: 100%;
+        padding: 10px;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+
+    .method-gui .result {
+        float: left;
+        margin-left: 20px;
+    }
+
+    .method-gui .result textarea {
+        width: 600px;
+        height: 200px;
+        background: #3b4151;
+        color: #fff;
+    }
+
+    .requirement {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
