@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="./../css/main.css">
+    <link rel="stylesheet" type="text/css" href="./../css/model.css">
+    <link rel="stylesheet" type="text/css" href="./../css/modelForms.css">
+    <script type="text/javascript" src="./../js/modelRequests/userRequests.js"></script>
+    <script type="text/javascript" src="./../js/xmlhttp.js"></script>
+    <script type="text/javascript" src="./../js/view.js"></script>
+</head>
+
+<body>
+<!-- Container with user methods -->
+<h4>Click on the block to work with the method</h4>            
+<div id="user-methods" class="methods-container">
+    <!-- POST -->
+    <div class="method-wrapper">
+        <div class="block block-post" onclick="openBlock('addUser')">
+            <span class="method-name">POST</span>
+            <span class="method-description">Create user</span>
+        </div>
+        
+        <div id="addUser" class="block-post method-gui" style="display:none; float: left">
+            <!-- user addition form -->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">User id:</label>
+                        <input type="text" name="userId" id="addUser_userId">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">User name:</label>
+                        <input type="text" name="userName" id="addUser_userName">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">First name:</label>
+                        <input type="text" name="firstName" id="addUser_firstName">
+                    </div>
+        
+                    <div class="field">
+                        <label class="fieldName">Last name:</label>
+                        <input type="text" name="lastName" id="addUser_lastName">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">E-mail:</label>
+                        <input type="text" name="email" id="addUser_email">
+                    </div>
+                                
+                    <div class="field">
+                        <label class="fieldName">Password:</label>
+                        <input type="password" name="password" id="addUser_password">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">Phone:</label>
+                        <input type="text" name="phone" id="addUser_phone">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">User status:</label>
+                        <input type="text" name="userStatus" id="addUser_userStatus">
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="addUser()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>    
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="addUser_result"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- GET -->                
+    <div class="method-wrapper">
+        <div class="block block-get" onclick="openBlock('login')">
+            <span class="method-name">GET</span>
+            <span class="method-description">Logs user into the system</span>
+        </div>
+        
+        <div id="login" class="block-get method-gui" style="display:none; float: left">
+            <!-- login user -->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">User name:</label>
+                        <input type="text" name="userName" id="login_userName">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">Password:</label>
+                        <input type="password" name="password" id="login_password">
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="login()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="login_result"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- GET -->
+    <div class="method-wrapper">
+        <div class="block block-get" onclick="openBlock('logout')">
+            <span class="method-name">GET</span>
+            <span class="method-description">Logs out current logged in user session</span>
+        </div>
+        <div id="logout" class="block-get method-gui" style="display:none; float: left">
+        <!-- logout current logged in user session -->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <label class="fieldName">Log out: </label>
+                    <div class="button-block">
+                        <button type="button" onclick="logout()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="logout_result"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- GET -->
+    <div class="method-wrapper">
+        <div class="block block-get" onclick="openBlock('getByUserName')">
+            <span class="method-name">GET</span>
+            <span class="method-description">Get user by user name</span>
+        </div>    
+        <div id="getByUserName" class="block-get method-gui" style="display:none; float: left">
+        <!-- get user by name -->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">User name:</label>
+                        <input type="text" name="userName" id="getByUserName_userName">
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="getByUserName()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="getByUserName_result"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PUT -->
+    <div class="method-wrapper">
+        <div class="block block-put" onclick="openBlock('updateUser')">
+            <span class="method-name">PUT</span>
+            <span class="method-description">Updated user</span>
+        </div>    
+        <div id="updateUser" class="block-put method-gui" style="display:none; float: left">
+        <!-- update user -->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <label class="requirement">user name that need to be updated*</label>
+                    
+                    <div class="field">
+                        <label class="fieldName">User name:</label>
+                        <input type="text" name="userId" id="updateUser_user">
+                    </div>
+                
+                    <label class="requirement">new information about user</label>
+                    
+                    <div class="field">
+                        <label class="fieldName">User id:</label>
+                        <input type="text" name="userId" id="updateUser_userId">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">User name:</label>
+                        <input type="text" name="userName" id="updateUser_userName">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">First name:</label>
+                        <input type="text" name="firstName" id="updateUser_firstName">
+                    </div>
+        
+                    <div class="field">
+                        <label class="fieldName">Last name:</label>
+                        <input type="text" name="lastName" id="updateUser_lastName">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">E-mail:</label>
+                        <input type="text" name="email" id="updateUser_email">
+                    </div>
+                                
+                    <div class="field">
+                        <label class="fieldName">Password:</label>
+                        <input type="password" name="password" id="updateUser_password">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">Phone:</label>
+                        <input type="text" name="phone" id="updateUser_phone">
+                    </div>
+                    
+                    <div class="field">
+                        <label class="fieldName">User status:</label>
+                        <input type="text" name="userStatus" id="updateUser_userStatus">
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="updateUser()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>    
+            
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="updateUser_result"></textarea>
+            </div>
+        </div>
+    </div>
+    
+    <!-- DELETE -->
+    <div class="method-wrapper">
+        <div class="block block-delete" onclick="openBlock('deleteUser')">
+            <span class="method-name">DELETE</span>
+            <span class="method-description">Delete user</span>
+        </div>    
+        <div id="deleteUser" class="block-delete method-gui" style="display:none; float: left">
+            <!--delete user by id-->
+            <div class="form">
+            <form>
+                <div class="main">
+                    <div class="field">
+                        <label class="fieldName">User name:</label>
+                        <input type="text" name="userId" id="deleteUser_username">
+                    </div>
+                    
+                    <div class="button-block">
+                        <button type="button" onclick="deleteUser()">Execute</button>
+                    </div>        
+                </div>
+            </form>
+            </div>
+
+            <div class="result">
+                <label class="fieldName">Response body:</label>
+                <textarea disabled id="deleteUser_result"></textarea>
+            </div>        
+        </div>
+    </div>
+</div>                
+</body>
+</html>
